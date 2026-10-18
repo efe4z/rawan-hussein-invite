@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>دعوة روان و حسين</title>
+  <meta name="description" content="دعوة لحفل خطوبة روان وحسين، الجمعة 13.11.2026">
+  <meta name="theme-color" content="#070d1c">
+
+  <!-- معاينة الرابط بالواتساب (بعد النشر غيّر og:image لرابط كامل، شوف README) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="دعوة خطوبة روان و حسين">
+  <meta property="og:description" content="الجمعة 13.11.2026 · من 2 ظهراً حتى 6 مساءً">
+  <meta property="og:image" content="og-image.jpg">
+
+  <link rel="preload" href="assets/velvet.jpg" as="image">
+  <link rel="preload" href="assets/paper-navy.jpg" as="image">
+  <link rel="preload" href="fonts/gulzar-arabic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts/fonts.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ═════════ المشهد: المخمل والظرف ═════════ -->
+<div class="scene" id="scene">
+  <div class="velvet"></div>
+  <div class="candle" id="candle"></div>
+
+  <div class="env-wrap" id="envWrap">
+    <div class="env" id="env">
+      <div class="env-shadow" id="envShadow"></div>
+      <div class="env-back paper-navy" id="envBack"></div>
+      <div class="rays" id="rays" aria-hidden="true"></div>
+
+      <div class="card" id="card"><div class="card-shade" id="cardShade"></div></div>
+
+      <div class="pocket-wrap" id="pocketWrap">
+        <div class="env-pocket paper-navy">
+          <svg class="orn folds" viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 1400 L500 880 L1000 1400" stroke="rgba(0,0,0,.5)" stroke-width="3" transform="translate(0 2)"/>
+            <path d="M0 1400 L500 880 L1000 1400" stroke="rgba(170,190,240,.12)" stroke-width="1.5"/>
+          </svg>
+          <svg class="orn orn-foil" id="pocketFoil" viewBox="0 0 1000 1400" aria-hidden="true"></svg>
+          <svg class="orn orn-glow" id="pocketGlow" viewBox="0 0 1000 1400" aria-hidden="true"></svg>
+          <svg class="flap-shade" id="flapShade" viewBox="0 0 1000 1400" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M0 45 L500 646 L1000 45" fill="none" stroke="rgba(0,0,0,.55)" stroke-width="10" style="filter:blur(4px)"/>
+          </svg>
+          <p class="env-names" id="envNames" aria-hidden="true"></p>
+          <p class="env-to" id="envTo"></p>
+        </div>
+      </div>
+
+      <div class="env-flap" id="flap">
+        <div class="flap-face flap-front paper-navy">
+          <svg class="orn orn-foil" id="flapFoil" viewBox="0 0 1000 1400" aria-hidden="true"></svg>
+          <svg class="orn orn-glow" id="flapGlow" viewBox="0 0 1000 1400" aria-hidden="true"></svg>
+        </div>
+        <div class="flap-face flap-back paper-navy"></div>
+      </div>
+
+      <div class="seal seal-whole" id="seal">
+        <div class="seal-glow" id="sealGlow"></div>
+        <div class="seal-half l"><img src="assets/seal.webp" alt=""><span class="mono"></span></div>
+        <div class="seal-half r"><img src="assets/seal.webp" alt=""><span class="mono"></span></div>
+      </div>
+      <div class="flash" id="flash"></div>
+      <div class="env-light" id="envLight"></div>
+      <button class="env-tap" id="tap" type="button" aria-label="اكبس على الختم لتفتح الدعوة" disabled></button>
+    </div>
+  </div>
+
+  <canvas class="dust" id="dust" aria-hidden="true"></canvas>
+  <div class="vignette"></div>
+  <div class="dark" id="dark"></div>
+  <p class="hint" id="hint" data-k="hint"></p>
+</div>
+
+<!-- ═════════ صفحة الدعوة (بتبلّش جوّا الظرف كرت) ═════════ -->
+<div class="page locked" id="page">
+  <div class="page-frame" aria-hidden="true">
+    <svg class="pf-star tl" viewBox="-14 -14 28 28"><path id="pfStar" d=""/></svg>
+    <svg class="pf-star tr" viewBox="-14 -14 28 28"><use href="#pfStar"/></svg>
+    <svg class="pf-star bl" viewBox="-14 -14 28 28"><use href="#pfStar"/></svg>
+    <svg class="pf-star br" viewBox="-14 -14 28 28"><use href="#pfStar"/></svg>
+  </div>
+  <div class="page-shimmer" id="pageShimmer"></div>
+
+  <div class="page-scroll" id="pageScroll">
+    <main class="page-content">
+      <svg class="mini-med" viewBox="0 0 120 120" aria-hidden="true"><path id="miniMed" d=""/></svg>
+
+      <p class="basmala" data-k="basmala"></p>
+      <p class="inv" data-k="invitation"></p>
+      <h1 class="names">
+        <span class="nm" data-k="names.first"></span>
+        <span class="joiner" data-k="names.joiner"></span>
+        <span class="nm" data-k="names.second"></span>
+        <i class="pen" aria-hidden="true"></i>
+      </h1>
+
+      <svg class="divider" viewBox="0 0 300 40" aria-hidden="true"><path class="div-path" d=""/></svg>
+
+      <section class="sec when" aria-label="الموعد">
+        <div class="date-row">
+          <span class="d-side d-dayname" data-k="date.dayName"></span>
+          <span class="d-day" dir="ltr" data-k="date.full"></span>
+          <span class="d-side d-time"><span data-k="time.from"></span><span data-k="time.to"></span></span>
+        </div>
+        <p class="hijri" data-k="date.hijri"></p>
+        <div class="kids">
+          <p class="kids-main" data-k="kids.note"></p>
+          <p class="kids-why" data-k="kids.reason"></p>
+        </div>
+        <button class="btn-ghost" id="calBtn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>
+          أضف للتقويم
+        </button>
+        <div class="cal-opts" id="calOpts" hidden>
+          <a class="btn-ghost" id="gcal" href="#" target="_blank" rel="noopener">تقويم Google</a>
+          <a class="btn-ghost" id="ical" href="#">تقويم iPhone</a>
+        </div>
+      </section>
+
+      <svg class="divider" viewBox="0 0 300 40" aria-hidden="true"><path class="div-path" d=""/></svg>
+
+      <section class="sec place" aria-label="المكان">
+        <h2 data-k="place.title"></h2>
+        <p class="venue" data-k="place.name"></p>
+        <p class="addr" data-k="place.address"></p>
+        <a class="btn" id="mapBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-11.5a7 7 0 1 0-14 0C5 15 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <span data-k="place.mapButton"></span>
+        </a>
+      </section>
+
+      <svg class="divider" viewBox="0 0 300 40" aria-hidden="true"><path class="div-path" d=""/></svg>
+
+      <section class="sec rsvp" aria-label="تأكيد الحضور">
+        <h2 data-k="rsvp.title"></h2>
+        <p class="note" data-k="rsvp.note"></p>
+        <form class="rsvp-form" id="rsvpForm" name="rsvp" novalidate>
+          <p hidden><label>لا تعبّي هالخانة <input name="website" id="fTrap" tabindex="-1" autocomplete="off"></label></p>
+          <input type="hidden" name="guest_link" id="guestLink">
+          <label class="field"><span>الاسم</span><input name="name" id="fName" required autocomplete="name"></label>
+          <div class="choice" role="radiogroup" aria-label="الحضور">
+            <label><input type="radio" name="attendance" value="حاضر" id="fYes" required><span>حاضر</span></label>
+            <label><input type="radio" name="attendance" value="معتذر" id="fNo"><span>معتذر</span></label>
+          </div>
+          <div class="guests" id="guestsRow" hidden>
+            <span data-k="rsvp.guestsLabel"></span>
+            <div class="stepper">
+              <button type="button" id="gPlus" aria-label="زيادة">+</button>
+              <output id="gOut">1</output>
+              <button type="button" id="gMinus" aria-label="إنقاص">−</button>
+            </div>
+            <input type="hidden" name="guests" id="gIn" value="1">
+          </div>
+          <label class="field"><span>رسالة تهنئة للعروسين (اختياري)</span><textarea name="message" id="fMsg" rows="3"></textarea></label>
+          <p class="form-msg" id="formMsg" hidden></p>
+          <button class="btn" type="submit" id="fSend">أرسل التأكيد</button>
+        </form>
+        <p class="thanks" id="thanks" hidden></p>
+        <div class="wa-fallback" id="waFallback" hidden>
+          <p data-k="rsvp.fallbackNote"></p>
+          <a class="btn" id="waSend" href="#" target="_blank" rel="noopener">أرسل التأكيد على الواتساب</a>
+        </div>
+        <a class="wa" id="waBtn" href="#" target="_blank" rel="noopener" hidden>أو أكّد على الواتساب</a>
+      </section>
+
+      <svg class="divider" viewBox="0 0 300 40" aria-hidden="true"><path class="div-path" d=""/></svg>
+
+      <section class="sec count" aria-label="العدّ التنازلي">
+        <h2 data-k="countdown.title"></h2>
+        <div class="cd" id="cd">
+          <div class="cd-cell"><b data-cd="d">0</b><span>يوم</span></div>
+          <div class="cd-cell"><b data-cd="h">0</b><span>ساعة</span></div>
+          <div class="cd-cell"><b data-cd="m">0</b><span>دقيقة</span></div>
+          <div class="cd-cell"><b data-cd="s">0</b><span>ثانية</span></div>
+        </div>
+        <p class="cd-done" id="cdDone" hidden></p>
+      </section>
+
+      <svg class="divider" viewBox="0 0 300 40" aria-hidden="true"><path class="div-path" d=""/></svg>
+
+      <p class="closing" data-k="closing"></p>
+      <p class="sign" id="sign"></p>
+      <svg class="end-med" viewBox="0 0 120 120" aria-hidden="true"><use href="#miniMed"/></svg>
+    </main>
+  </div>
+</div>
+
+<canvas class="fx" id="fx" aria-hidden="true"></canvas>
+<button class="sound-btn" id="soundBtn" type="button" aria-label="كتم الصوت" hidden><i></i><i></i><i></i></button>
+
+<!-- تعريفات الزخارف (بتتعبّى بالكود) -->
+<svg id="ornDefs" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="pageGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8a6528"/><stop offset=".35" stop-color="#d7b56b"/><stop offset=".6" stop-color="#a27a33"/><stop offset="1" stop-color="#c9a458"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<script src="config.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="js/ornaments.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

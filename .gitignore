@@ -1,0 +1,4 @@
+_generated/
+.DS_Store
+netlify.toml
+audio/*.txt
