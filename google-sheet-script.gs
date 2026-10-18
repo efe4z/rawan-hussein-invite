@@ -4,13 +4,18 @@
    (الخطوات كاملة بملف README، قسم «جدول تأكيد الحضور»)
    ═══════════════════════════════════════════════════════════ */
 
+// رقم الجدول (من رابطه، بين /d/ و /edit). إذا الكود مربوط بالجدول من Extensions بيشتغل وهو فاضي
+const SHEET_ID = "";
+function book() { return SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp.openById(SHEET_ID); }
+
 const RESPONSES = "الردود";
 const SUMMARY = "الملخص";
 const HEADERS = ["الوقت", "الاسم", "الحضور", "عدد الأشخاص", "رسالة التهنئة", "الاسم على الظرف"];
 
 // شغّل هالدالة مرة وحدة بس (من فوق اختار setup واكبس Run)
 function setup() {
-  const ss = SpreadsheetApp.getActiveSpreadsheet();
+  const ss = book();
+  ss.setSpreadsheetTimeZone("Asia/Damascus");   // توقيت سوريا
   const r = ss.getSheetByName(RESPONSES) || ss.insertSheet(RESPONSES);
   if (r.getLastRow() === 0) r.appendRow(HEADERS);
   r.setFrozenRows(1);
@@ -45,7 +50,7 @@ function doPost(e) {
   const lock = LockService.getScriptLock();
   lock.waitLock(15000);
   try {
-    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const ss = book();
     const sh = ss.getSheetByName(RESPONSES) || ss.insertSheet(RESPONSES);
     if (sh.getLastRow() === 0) sh.appendRow(HEADERS);
     const p = (e && e.parameter) || {};
