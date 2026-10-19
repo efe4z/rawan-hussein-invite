@@ -42,7 +42,7 @@ window.INVITE = {
     title: "تأكيد الحضور",
     note: "نرجو تأكيد الحضور قبل 6.11.2026",
     // رقم واتساب مع رمز الدولة وبدون + (مثال: 963944123456). إذا فاضي، زر الواتساب ما بيبين
-    whatsapp: "358442386934",
+    whatsapp: "",
     // رابط Google Sheet (رابط الـ Web app من Apps Script، شوف README). إذا فاضي، التأكيد بيروح عالواتساب
     sheetUrl: "https://script.google.com/macros/s/AKfycbz_4drAmzidG9kfepMDFULc-3ZhTJijvmn7lKaBvk9qPWKps_Ds8NCW7W66w8q5oCP1dg/exec",
     guestsLabel: "عدد الأشخاص (بدون أطفال)",

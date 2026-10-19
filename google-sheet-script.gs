@@ -10,6 +10,7 @@ function book() { return SpreadsheetApp.getActiveSpreadsheet() || SpreadsheetApp
 
 const RESPONSES = "الردود";
 const SUMMARY = "الملخص";
+const MESSAGES = "رسائل التهنئة";
 const HEADERS = ["الوقت", "الاسم", "الحضور", "عدد الأشخاص", "رسالة التهنئة", "الاسم على الظرف"];
 
 // شغّل هالدالة مرة وحدة بس (من فوق اختار setup واكبس Run)
@@ -43,6 +44,17 @@ function setup() {
   s.getRange(7, 1).setFormula("=IFERROR(FILTER(" + R + "B2:B&\"  (\"&" + R + "D2:D&\")\"," + R + "C2:C=\"حاضر\"),\"\")");
   s.getRange(6, 2).setValue("أسماء المعتذرين").setFontWeight("bold");
   s.getRange(7, 2).setFormula("=IFERROR(FILTER(" + R + "B2:B," + R + "C2:C=\"معتذر\"),\"\")");
+
+  // صفحة رسائل التهنئة: الاسم والرسالة
+  const m = ss.getSheetByName(MESSAGES) || ss.insertSheet(MESSAGES, 1);
+  m.clear();
+  m.setRightToLeft(true);
+  m.getRange(1, 1, 1, 2).setValues([["الاسم", "رسالة التهنئة"]]).setFontWeight("bold").setBackground("#13284a").setFontColor("#ecd496");
+  m.setFrozenRows(1);
+  m.getRange(2, 1).setFormula("=IFERROR(FILTER({" + R + "B2:B," + R + "E2:E}," + R + "E2:E<>\"\"),\"\")");
+  m.setColumnWidth(1, 150);
+  m.setColumnWidth(2, 330);
+  m.getRange("A:B").setWrap(true).setVerticalAlignment("top").setHorizontalAlignment("right");
 }
 
 // بتستقبل التأكيد من الموقع
